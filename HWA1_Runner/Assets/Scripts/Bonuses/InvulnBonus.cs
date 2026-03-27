@@ -36,6 +36,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         Debug.Log("Invuln");
         player_h.SetInvulnerable(true);
+        player_h.animationController.SetInvulnerable(true);
 
         Invoke("Destroyer", duration);
 
@@ -43,6 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Destroyer() {
         Debug.Log("Vuln");
         player_h.SetInvulnerable(false);
+        player_h.animationController.SetInvulnerable(false);
 
         Destroy(gameObject);
     }

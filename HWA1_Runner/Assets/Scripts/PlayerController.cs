@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
 
     void OnLeft_()
     {
-        if (LineToMove > 0) { transform.Translate(Vector3.left * lineDistance); LineToMove--; }
-        //Debug.Log(LineToMove);
+        if (LineToMove > 0) { transform.Translate(Vector3.left * lineDistance); LineToMove--; Debug.Log("lefted"); }
+        //Debug.Log("lefted");
     }
 
     void OnRight_()

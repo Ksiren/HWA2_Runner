@@ -9,20 +9,25 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private bool isInvulnerable = false;
 
     public float currentHealth;
+    public PlayerAnimationController animationController;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        animationController = GetComponent<PlayerAnimationController>();
     }
 
     public void TakeDamage(float damage)
     {
         if (isInvulnerable) return;
 
+        animationController.PlayDamage();
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
+            animationController.PlayDeath();
             Die();
         }
 
@@ -32,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Dead");
+        SaveSystem.SaveRecord(ScoreSystem.Instance.Score);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

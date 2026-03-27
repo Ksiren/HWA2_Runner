@@ -11,6 +11,7 @@ public class SaveSystem : MonoBehaviour
         if (score > record)
         {
             PlayerPrefs.SetInt("Record", score);
+            PlayerPrefs.Save();
         }
     }
 

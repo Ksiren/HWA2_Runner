@@ -24,6 +24,8 @@ public class HealthBonus : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerHealth player = other.GetComponent<PlayerHealth>();
+        other.GetComponent<PlayerAnimationController>().PlayBonus();
+
         Debug.Log("Healed " + player.currentHealth);
 
         if (player != null)

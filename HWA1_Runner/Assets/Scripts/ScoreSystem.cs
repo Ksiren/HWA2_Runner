@@ -6,11 +6,11 @@ public class ScoreSystem : MonoBehaviour
 {
     public static ScoreSystem Instance;
 
-    [SerializeField] private float scorePerSecond = 5;
+    [SerializeField] private int scorePerSecond = 5;
 
     private float score;
 
-    public float Score => Mathf.FloorToInt(score);
+    public int Score => Mathf.FloorToInt(score);
 
     private void Awake()
     {
